@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>  
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="css/swiper.min.css" />
+		<script type="text/javascript" src="js/swiper.min.js" ></script>
+		<style>
+			.modal-container {
+				position: absolute;	
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				z-index: 100;
+				width: 100%;
+				height: 100%;
+				vertical-align: middle; 
+				background-color: rgba(0,0,0,0.5);
+			}
+			.modal-box {
+				width: 80%;
+				max-width: 300px;
+				margin: 0 auto;
+				padding: 4px;
+				background-color: #fff;
+				transform-origin: 50% 50%;
+				transform: scale(0.2);
+				animation: zoomIn .3s forwards;  
+			}
+			.modal-header {
+				padding: 4px 0 8px 4px;
+				border-bottom: 1px solid #dcdcdc;
+			}
+			.modal-body {
+				padding: 4px;
+				min-height: 55px;
+			}
+			.modal-footer {
+				padding: 4px 0;
+				text-align: right; 
+			}
+			.modal-footer > .modal-button {
+				width: 40px;
+				height: 24px;
+				line-height: 24px;
+				border: none; 
+			}
+			.modal-button[data-button = 'true'] {background-color: #00AAFF; margin-right: 5px;;}
+			.modal-button[data-button = 'false'] {background-color: #ccc} 
+			
+			@-webkit-keyframes zoomIn{
+				from{transform: scale(0.2);}
+				to{transform: scale(1);}
+			}
+		</style>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			html,
+			body,
+			.container,
+			.swiper-container,
+			.swiper-wrapper,
+			.swiper-slide {
+				width: 100%;
+				height: 100%; 
+				
+			}
+			.container {
+				background-color: #4c614d;
+			} 
+			.step-container {
+				width: 100%;
+				height: 100%;
+				
+				/*overflow-x: hidden; 
+				overflow-y: auto;*/   
+				box-shadow: 0px 0px 5px #999, -1px 0px 5px #999;  
+				background-color: #868f64;
+				color: #efefef;
+			}
+			.swiper-container {
+				overflow: initial;
+				overflow-x: hidden;
+			}
+			.swiper-wrapper{
+				
+			}
+			.swiper-slide {      
+				opacity: 0; 
+				padding: 10px;
+				overflow-y: auto;   
+				padding-bottom: 60px; 
+				transition: opacity .3s;
+			} 
+			.swiper-slide.show {opacity: 1;}
+			.show-by-fadeIn {
+				animation: fadeIn .5s forwards;   
+				-webkit-animation: fadeIn .5s forwards;
+			}
+			h4.section-title {
+				background-color: #4c513d; 
+				padding: 5px;
+				font-size: 14px;
+			}
+			.swiper-slide > section {
+				margin-bottom: 10px;
+			}
+			.swipe-handler {
+				pointer-events: none;
+				opacity: 0 ; 
+				position: absolute;
+				left: 2%;
+				z-index: 20;
+				bottom: 10px;
+				width: 96%;
+				height: 45px; 
+				background-color: #4c614d;  
+				border: 1px solid #333;
+				color: #fff;
+				font-size: 34px;
+				text-align: center;
+				line-height: 1.2;
+				transition: opacity .3s;
+				
+			}
+			.swipe-handler.show {  
+				pointer-events:auto;
+				opacity: 1;
+			}
+			.swipe-handler > span {
+				margin-left: 50px;
+				animation: shake 1.6s infinite;  
+			}
+			  
+			@keyframes fadeIn{
+				from{opacity: 0;}
+				to{opacity: 1;}
+			}
+			@-webkit-keyframes fadeIn{
+				from{opacity: 0;}
+				to{opacity: 1;}
+			}
+			@-webkit-keyframes shake{
+				from{margin-left: 50px;}
+				to{margin-left: -50px;}
+			}
+			keyframes shake{
+				from{margin-left: 50px;}
+				to{margin-left: -50px;}
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="container">
+			<div class="step-container">
+				<div class="swiper-container">
+				  	<div class="swiper-wrapper">
+					    <div class="swiper-slide show-by-fadeIn">   
+					    	<h4 class="section-title">此处放置标题</h4>
+					    	<section>
+					    		&emsp;&emsp;文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，
+					    	</section>
+					    	
+					    	<h4 class="section-title">此处放置标题</h4>
+					    	<section>
+					    		<img src="img/shuijiao.jpg" width="100%"/> 
+					    	</section>
+					    	<h4 class="section-title">此处放置标题</h4>
+					    	<section>
+					    		<div style="width: 100%; height: 180px; line-height: 180px; text-align: center; background-color: #ccc; ">
+					    			此处用于放置多媒体文件 
+					    		</div>
+					    	</section> 
+					    	
+					    </div> 
+					    <div class="swiper-slide ">
+					    	<h4 class="section-title">此处放置标题</h4>
+					    	<section>  
+					    		&emsp;&emsp;文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，
+					    	</section>
+					    	<h4 class="section-title">此处放置标题</h4>
+					    	<section>
+					    		<img src="img/cbd.jpg" width="100%"/> 
+					    	</section>
+					    	<h4 class="section-title">此处放置标题</h4>
+					    	<section>
+					    		<!--此处根据具体需求更改-->
+					    		<div style="width: 100%; height: 180px; line-height: 180px; text-align: center; background-color: #ccc; ">
+					    			此处用于放置多媒体文件 
+					    		</div>
+					    	</section>
+					    </div> 
+					    <div class="swiper-slide ">
+					    	<h4 class="section-title">此处放置标题</h4>
+					    	<section>
+					    		&emsp;&emsp;文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，文字描述，文字内容，
+					    	</section>
+					    	<h4 class="section-title">此处放置标题</h4>
+					    	<section>
+					    		<img src="img/yuantiao.jpg" width="100%"/>  
+					    	</section>
+					    	<h4 class="section-title">此处放置标题</h4>
+					    	<section>
+					    		<!--此处根据具体需求更改-->
+					    		<div style="width: 100%; height: 180px; line-height: 180px; text-align: center; background-color: #ccc; ">
+					    			此处用于放置多媒体文件 
+					    		</div>
+					    	</section>
+					    </div>
+				  	</div>
+				  	<div class="swipe-handler">
+				  		<span class="">&#xab;&#xab;&#xab;</span>
+				  	</div>   
+				</div> 
+				
+			</div> 
+			<div class="swiper-pagination" style="color: #fff;"></div>			<!--导航-->  
+		</div>
+	</body> 
+	<script> 
+		var handler = document.querySelector(".swipe-handler");
+		//屏幕滑动初始化
+		var mySwiper = new Swiper('.swiper-container', {
+			/*noSwiping : true,*/   
+			pagination: '.swiper-pagination',  
+		    paginationType: 'fraction',
+		    swipeHandler : '.swipe-handler',  
+		    onInit: function(swiper) {
+		    	var len = swiper.slides.length;
+		    	var i = 0;
+		    	for (; i < len-1; i++) {
+		    		swiper.slides[i].addEventListener('scroll', function() {
+		    			if(isScrollToEnd(this)) {	//this 为当前显示的屏
+		    				 handlerShow();
+		    			} else {
+		    				handlerHide();
+		    			}
+		    		})
+		    	}
+		    },
+		    onSlideNextEnd: function(swiper) {
+		    	afterNext();  
+		    }
+		});
+	
+		function afterNext() {  
+			switch(mySwiper.activeIndex) {
+				case 1:  //第二屏时显示弹框
+					var modal = new Modal({
+						title: '温馨提示	',
+						content: '请选择是或者否',
+						ok: function() {
+							//选择是回调
+							showSlide();  
+						},
+						cancel: function() {
+							//选择否回调
+							showSlide();
+						}
+					}).open();    
+					break
+				default: 
+					showSlide();  
+					break 
+			} 
+			handlerHide();  //下一屏隐藏handler
+		}
+		
+		function showSlide() {
+			mySwiper.slides[mySwiper.activeIndex].className += " show-by-fadeIn";  //注意前面要留空格    
+		}
+		
+		//判断滚动条是否到达底部
+		function isScrollToEnd(targetSlide) {
+			if(targetSlide.scrollTop + targetSlide.clientHeight == targetSlide.scrollHeight) {
+				return true;
+			}
+			return false;
+		}
+		
+		function handlerShow() {
+			handler.className += ' show'; 
+			mySwiper.paginationContainer[0].setAttribute("hidden", "hidden");
+		}
+		function handlerHide() {
+			handler.className = "swipe-handler";
+			mySwiper.paginationContainer[0].removeAttribute("hidden");  
+		}
+		//根据数据长度动态创建内容
+		function createSlide() {  
+			var str = [
+				'<div class="swiper-slide">Slide 10</div>'
+			].join('');
+			mySwiper.appendSlide(str);
+		}
+		
+		/*	模态框封装
+		 * 	传值必须正确，否则不执行
+		 *  obj {
+		 * 		title: '',			{String}标题
+		 * 		content: '',		{String}内容
+		 * 		ok: function,		{Function}确定(是)回调
+		 * 		cancel: function	{Function}取消(否)回调 
+		 *  }
+		 */
+		;(function() {
+			var body = document.querySelector("body"); 
+			var wrapper = document.createElement('div');
+			var modalData = '';
+			var parma = {};
+			
+			function Modal(obj) {
+				if(typeof obj !== 'object') return
+				modalData = this.init(obj);
+				parma = obj;
+			}
+			Modal.prototype = {
+				init: function(obj) {
+					return [ 
+						'<table class="modal-container">',
+							'<tr>',
+								'<td>',
+									'<div class="modal-box">',
+										'<div class="modal-header">'+obj.title+'</div>',
+										'<div class="modal-body">'+obj.content+'</div>',
+										'<div class="modal-footer">',
+										 	'<button class="modal-button" data-button="true">是</button>',
+										 	'<button class="modal-button" data-button="false">否</button>',
+										'</div>',
+									'</div>',
+								'</td>',
+							'</tr>',
+						'</table>'
+					].join('');
+				}, 
+				//打开模态框 
+				open: function(fn) {
+					var self = this;
+					wrapper.innerHTML = modalData;
+					body.appendChild(wrapper);
+					document.querySelectorAll('.modal-button')[0].addEventListener("click", function() {
+						self.close(parma.ok)
+					})
+					document.querySelectorAll('.modal-button')[1].addEventListener("click", function() {
+						self.close(parma.cancel);   
+					}) 
+					
+				},
+				//关闭模态框  
+				close: function(fn) {  
+					body.removeChild(wrapper);
+					if(fn) {fn();}   
+				}
+			}
+			window.Modal = Modal; 
+		})();
+	</script>
+</html>
